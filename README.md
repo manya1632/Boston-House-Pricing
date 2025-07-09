@@ -18,7 +18,7 @@ python -m venv venv
 ### Activate the environment
 
 ```
-venv\Scripts\activate
+venv\scripts\activate
 ```
 
 ### To install libraries in requirements.txt
