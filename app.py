@@ -2,6 +2,7 @@ import pickle
 from flask import Flask, request, app, jsonify, url_for, render_template
 import numpy as np
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -31,4 +32,5 @@ def predict() :
     return render_template("home.html", prediction_text = "The predicted house price is {}".format(output))
 
 if __name__ == "__main__" :
+    port = int(os.environ.get('PORT', 5000))  
     app.run(debug=True)
