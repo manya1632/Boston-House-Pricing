@@ -1,3 +1,53 @@
-<h1>
-    Hello world
-</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Boston House Price Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>🏠 Boston House Price Predictor</h1>
+
+      <form action="{{ url_for('predict') }}" method="post">
+        <input type="text" name="CRIM" placeholder="Crime rate (CRIM)" required>
+        <input type="text" name="ZN" placeholder="Residential land (ZN)" required>
+        <input type="text" name="INDUS" placeholder="Non-retail business area (INDUS)" required>
+        <input type="text" name="CHAS" placeholder="Near Charles River? (0 or 1) (CHAS)" required>
+        <input type="text" name="NOX" placeholder="NOx concentration (NOX)" required>
+        <input type="text" name="RM" placeholder="Avg rooms per dwelling (RM)" required>
+        <input type="text" name="AGE" placeholder="Old homes % (AGE)" required>
+        <input type="text" name="DIS" placeholder="Distance to employment centers (DIS)" required>
+        <input type="text" name="RAD" placeholder="Access to highways (RAD)" required>
+        <input type="text" name="TAX" placeholder="Tax rate (TAX)" required>
+        <input type="text" name="PTRATIO" placeholder="Student-teacher ratio (PTRATIO)" required>
+        <input type="text" name="B" placeholder="Black population index (B)" required>
+        <input type="text" name="LSTAT" placeholder="Lower income % (LSTAT)" required>
+
+        <button type="submit">🔍 Predict</button>
+      </form>
+
+      {% if prediction_text %}
+      <div class="prediction-box" id="prediction">
+        <h2>📢 Prediction Result</h2>
+        <p>{{ prediction_text }}</p>
+      </div>
+
+      <script>
+        window.onload = function () {
+          document.getElementById("prediction").scrollIntoView({ behavior: "smooth" });
+        }
+      </script>
+      {% endif %}
+    </div>
+  </div>
+</body>
+
+</html>
