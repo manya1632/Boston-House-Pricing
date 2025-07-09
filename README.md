@@ -20,3 +20,13 @@ python -m venv venv
 ```
 venv\Scripts\activate
 ```
+
+### To install libraries in requirements.txt
+```
+pip install -r requirements.txt
+```
+
+### To run 
+```
+python app.py
+```
